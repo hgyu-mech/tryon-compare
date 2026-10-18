@@ -1,5 +1,11 @@
 # TryOn Compare — judging app
 
+- [Open the fitting room](https://tryon-compare.dgrrgddgrrgd.chatgpt.site/) — live try-on requires the access code provided with the submission.
+- [Open the recorded example](https://tryon-compare.dgrrgddgrrgd.chatgpt.site/?replay=1) — two previously generated real YouCam results; no new generation.
+- [Watch the demo video](https://youtu.be/W80d5jWSDKA).
+
+On 18 October 2026, a production browser check passed through sign-in, photo selection, explicit consent, one live task, same-origin result-image decoding, comparison notes, and reload. A second signed-in session received 404 for the first session's task and result. The official read-only unit check confirmed a 2-unit reduction. The repeated fictional person/navy inputs returned the same JPEG as the recorded navy example; the new live request did not produce a different visual variant. This check does not measure physical fit or guarantee ongoing generation capacity.
+
 This local Sites/Vinext app preserves the original fitting-room interface and adds password-protected server-side YouCam access. The parent app is unchanged. Starter documentation is preserved in `README.starter.md`.
 
 The project's original application code is released under the [MIT License](LICENSE), with the owner's approval on 18 October 2026. Existing third-party notices remain in `build/sites-vite-plugin.LICENSE` and `vendor/shadcn-tailwind-4.13.0.LICENSE.md`; dependencies retain their own licenses. Demonstration provenance, provider conditions and asset limitations are documented in [Rights and privacy](RIGHTS_AND_PRIVACY.en.md). The code license does not relicense provider technology or third-party materials.
@@ -65,6 +71,8 @@ Remote migrations and deployment are separate owner-authorized actions. Without 
 With Playwright installed, `node test/browser-qa.mjs` uses an isolated browser against the built local preview on 9050 and a loopback-only offline transport fixture. The fixture has a conspicuous offline-test label, fake credentials, and no real network transport. It exercises file decoding, consent, the preserved provider adapter protocol, result proxying and note persistence. Its success is local adapter/UI integration evidence, not a new provider result. Screenshots and reports are under ignored `.qa/`.
 
 These tests do not call the real provider, spend credits, upload, publish or submit. Keep `.env`, `.dev.vars`, `.sites-runtime`, `.wrangler`, `.qa`, `node_modules` and private evidence out of source packages. `.env.example` contains variable names and safe defaults only. This reusable source package omits the owner Site ID. Local preview works independently; register your own Site only if you choose to deploy your own copy.
+
+`test/judge-form-origin.mjs` checks native form Origin preservation against a built app using an invalid fixture access code. `test/provider-worker-runtime.mjs` runs the actual provider adapter in Miniflare/workerd with every outbound request handled by local fixtures, including rejected redirects. Neither regression test creates a real provider task.
 
 For an existing Playwright runtime or browser installation, pass --playwright-module and --browser-executable paths to the browser QA command. No host-specific account path is embedded in the public test runner.
 

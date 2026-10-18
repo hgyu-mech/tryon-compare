@@ -27,7 +27,10 @@ export default {
     const secured = new Response(response.body, response);
     secured.headers.set('Cache-Control','no-store');
     secured.headers.set('X-Content-Type-Options','nosniff');
-    secured.headers.set('Referrer-Policy','no-referrer');
+    // Native same-origin form POSTs send Origin:null under no-referrer.
+    // Keep origin validation strict while HTML forms retain their own origin;
+    // same-origin still withholds the referrer from external destinations.
+    secured.headers.set('Referrer-Policy',response.headers.get('Content-Type')?.startsWith('text/html')?'same-origin':'no-referrer');
     secured.headers.set('Cross-Origin-Resource-Policy','same-origin');
     secured.headers.set('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob: data: https://yce-us.s3-accelerate.amazonaws.com https://yce-us.s3.amazonaws.com; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'");
     return secured;
