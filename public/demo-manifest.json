@@ -1,0 +1,10 @@
+{
+  "recordedAt": "2026-10-18",
+  "mode": "previously-generated-real-results",
+  "newGeneration": false,
+  "person": {"url":"/demo-inputs/person.png", "sha256":"4ba4676ac39376e92082d04daa73d7f788d5bfabef5e3e813f284dadf87fdc1a"},
+  "candidates": [
+    {"name":"Navy button-down shirt", "price":39000, "wardrobe":"Within budget; pairs with dark jeans", "preference":4, "decision":"shortlist", "garment":{"url":"/demo-inputs/navy.png", "sha256":"86ca9bf002d405562b76328904df97ddb279ba67a2bb3eb7269c795a9b0f9c42"}, "result":{"url":"/demo-results/navy.jpg", "sha256":"42a7e6d64c0f773f546b2181c0d58e56c71ec1a8cae9d9be3a0151297127f44e"}},
+    {"name":"Olive overshirt", "price":55000, "wardrobe":"Over my budget; two flap pockets", "preference":3, "decision":"skip", "garment":{"url":"/demo-inputs/olive.png", "sha256":"28ddc08d4cc423f5eccf4da9e1c162b2ff388a1ff7e7e8c41ae5a91d95b148a9"}, "result":{"url":"/demo-results/olive.jpg", "sha256":"22c4038c9194c73688e1ee325f97f305ca2daf009930b56b9eb4eb4600809fa6"}}
+  ]
+}
